@@ -1,0 +1,155 @@
+ <!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="CONTENT-TYPE" content="text/html; charset=UTF-8">
+  <title>Hello, World!</title>
+  <style>
+  input { border:3px solid black;
+          border-radius:5px;font-size:20px;}
+  #subm { background-color:green;
+    border:3px solid black;
+    border-radius:0px 15px;
+    color:white;width:200px;}
+  #subm:hover { background-color:blue;}
+  label { font-size:25px;color:black;}
+  span { color:yellow;font-size:25px;}
+  table,tr {background-color:gray;
+  border-radius:10px;
+  border:3px solid black; height:60px;}
+  caption {font-size:35px;}
+  select { width:150px;height:30px;border:3px solid black;
+          border-radius:5px;font-size:20px;}
+sup { font-size:15px;}
+  </style>
+</head>
+<body background="bgg.jpg">
+  <form action="#" onsubmit="return validation()">
+    <table border=0 align=center cellspacing=0>
+<caption><b>Student Details</b></caption>
+      <tr><td><label for="fname">First name<sup>*</sup>:</label>
+            <input type="text" id="fname" placeholder="Enter first name"><br><span id="ffname"></span></td></tr>
+      <tr><td><label for="lname">Last name<sup>*</sup>: </label>
+            <input type="text" id="lname" placeholder="Enter last name"><br><span id="llname"></span></td></tr>
+      <tr><td><label for="mobno">Mobile no<sup>*</sup>: </label>
+            <input type="text" id="mobno" placeholder="Enter mobile no"><br><span id="mmobno"></span></td></tr>
+      <tr><td><label for="Email">Email add<sup>*</sup>: </label>
+            <input type="text" id="Email" placeholder="eg- xyz@gmail.com"><br><span id="EEmail"></span></td></tr>
+      <tr><td><label for="Date">Date of Birth: </label>
+            <input type="date" id="Date"></td></tr>
+      <tr><td><label for="city">Faviorate city: </label>
+       <select name="city" id="city" width=150px>
+       <option value="Lucknow">Lucknow</option>
+       <option value="Varansi">Varansi</option>
+       <option value="Delhi">Delhi</option>
+       <option value="Azamgad">Azamgad</option>
+       <option value="Mau">Mau</option></select></td></tr>     
+      <tr><td align=center><input type="submit" id="subm"></td></tr>
+  </form>
+  <script type="text/javascript">
+  function validation()
+  {
+    var b=/^[A-Za-z]+$/;
+    var u=document.getElementById('fname').value;
+    var m=document.getElementById('mobno').value;
+    var l=document.getElementById('lname').value;
+    var e=document.getElementById('Email').value;
+    if(u=="")
+    {
+      document.getElementById('ffname').innerHTML="*please enter first name*";
+      return false;
+    }
+    if(u.length<2)
+    {
+      document.getElementById('ffname').innerHTML="*name must be greater than 1 character*";
+      return false;
+    }
+    if(u.length>10)
+    {
+      document.getElementById('ffname').innerHTML="*name must be less than 10 characters*";
+      return false;
+    }
+    if(!u.match(b))
+    { 
+       document.getElementById('ffname').innerHTML="*name must be alpfabets only*";
+       return false;
+     }
+    else
+     {
+       document.getElementById('ffname').innerHTML="";
+      }
+      if(l=="")
+    {
+      document.getElementById('llname').innerHTML="*please enter last name*";
+      return false;
+    }
+    if(l.length<2)
+    {
+      document.getElementById('llname').innerHTML="*name must be greater than 1 character*";
+      return false;
+    }
+    if(l.length>10)
+    {
+      document.getElementById('llname').innerHTML="*name must be less than 10 charecters*";
+      return false;
+    }
+    if(!l.match(b))
+    { 
+       document.getElementById('llname').innerHTML="*name must be alpfabets only*";
+       return false;
+     }
+    else
+     {
+       document.getElementById('llname').innerHTML="";
+      }
+    if(m=="")
+    {
+      document.getElementById('mmobno').innerHTML="*please enter mobile no*";
+      return false;
+    } 
+    if(isNaN(m))
+    {
+      document.getElementById('mmobno').innerHTML="*please enter number only*";
+      return false;
+    }
+      if(m.length!=10)
+    {
+      document.getElementById('mmobno').innerHTML="*mobile no must equal to 10 numbers*";
+      return false;
+    }
+      if(m.indexOf("0")==0)
+    {
+      document.getElementById('mmobno').innerHTML="*mobile no not start with 0*";
+      return false;
+    }        
+      else
+      {
+        document.getElementById('mmobno').innerHTML="";
+      }
+    if(e=="")
+    {
+      document.getElementById('EEmail').innerHTML="*please enter email address*";
+      return false;
+    } 
+    if(e.indexOf("@")==0)
+    {
+      document.getElementById('EEmail').innerHTML="*Email not start with @*";
+      return false;
+    }
+    if(e.indexOf(".")!=(e.length-4))
+    {
+      document.getElementById('EEmail').innerHTML="* '.' missing or after '.' three character must*";
+      return false;
+    }
+     if(e.indexOf("@")!=(e.length-10))
+    {
+      document.getElementById('EEmail').innerHTML="* '@' missing or after '@' five character must*";
+      return false;
+    }
+    else
+      {
+        document.getElementById('EEmail').innerHTML="";
+      }
+  }
+  </script>
+</body>
+</html>
